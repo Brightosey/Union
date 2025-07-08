@@ -22,6 +22,7 @@ function Header() {
               "#Welcome",
               "#Our Story",
               "#Event Details",
+              "#Gallery",
               "#Contact",
             ].map((anchor, i) => (
               <li  key={i} onClick={() => setIsOpen(false)}>

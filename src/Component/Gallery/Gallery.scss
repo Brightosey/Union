@@ -1,0 +1,52 @@
+.gallery {
+    background-color: #f8f1e9;
+    padding: 5rem 2rem;
+    border-bottom-right-radius: 2rem;
+    text-align: center;
+    min-height: 300px;
+    overflow: hidden;
+    font-family: 'Playfair Display', serif;
+  
+    &__main {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+  
+    &__main-image {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease-in-out;
+    }
+  
+    &__caption {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #7a4a2c;
+      font-style: italic;
+    }
+  
+    &__dots {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+  
+    &__dot {
+      width: 18px;
+      height: 6px;
+      border-radius: 4px;
+      background-color: #ccc;
+      transition: all 0.3s ease;
+      cursor: pointer;
+  
+      &--active {
+        background-color: #a3531c;
+        width: 30px;
+      }
+    }
+  }
+  
