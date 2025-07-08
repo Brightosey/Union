@@ -1,0 +1,83 @@
+@use "../../Style/global" as *;
+@use "../../Style/margin" as *;
+@use "../../Style/variables" as *;
+
+.footer {
+  background-color: $primary-text-color;
+  padding: 2rem;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__logo-link {
+    font-size: 3rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: $background-color;
+
+    &:hover {
+      text-decoration: underline;
+      color: $alternative-color;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include tablet {
+      flex-direction: row;
+      margin-top: 1rem;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 1rem;
+    color: $background-color;
+    transition: color 0.3s ease;
+
+    &:hover {
+      text-decoration: underline;
+      color: $alternative-color; 
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+
+    @include tablet {
+      flex-direction: row;
+      gap: 0.5rem;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $background-color;
+  }
+
+  &__legal {
+    font-size: 1rem;
+    color: $background-color;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      margin: 0 0.5rem;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@use "../../Style/global" as *;
+@use "../../Style/margin" as *;
+@use "../../Style/variables" as *;
+
+.event-details {
+  background-color: #fdf9f2;
+  padding: 4rem 2rem;
+  text-align: center;
+  font-family: "Georgia", serif;
+  color: #a3531c;
+
+  &__title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: center;
+    padding: 0 7rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  &__card {
+    border: 1px solid #a3531c;
+    padding: 4rem;
+    width: 70%;
+    flex: 1 1 300px;
+    background-color: #fffdf9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 40px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  &__heading {
+    font-size: 2.5rem;
+    margin: 1rem;
+    font-weight: bold;
+  }
+
+  &__date,
+  &__time,
+  &__location {
+    font-size: 2rem;
+    margin: 2rem 0;
+    color: #444;
+  }
+}
