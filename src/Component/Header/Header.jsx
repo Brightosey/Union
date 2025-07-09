@@ -8,7 +8,7 @@ function Header() {
   return (
     <header className="header">
       <section className="header__logo">
-        <a href="#welcome" className="header__logo-link">B&amp;L</a>
+        <a href="#welcome" className="header__logo-link">M&amp;D</a>
       </section>
 
       <section className="header__menu">
@@ -20,8 +20,8 @@ function Header() {
           <ul className="header__list">
             {[
               "#Welcome",
-              "#Our Story",
-              "#Event Details",
+              "#OurStory",
+              "#EventDetails",
               "#Gallery",
               "#Contact",
             ].map((anchor, i) => (

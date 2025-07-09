@@ -6,7 +6,7 @@ function Footer() {
       <section className="footer__top">
         <div className="footer__logo">
           <a href="/" className="footer__logo-link">
-            B&amp;L
+            B&amp;D
           </a>
         </div>
         <div className="footer__nav">
@@ -26,7 +26,7 @@ function Footer() {
       </section>
 
       <section className="footer__bottom">
-        <p className="footer__copyright">&copy; B&amp;L</p>
+        <p className="footer__copyright">&copy; M&amp;L</p>
         <p className="footer__legal">Legal Notice | Privacy Policy</p>
       </section>
     </footer>

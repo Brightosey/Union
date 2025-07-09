@@ -5,16 +5,37 @@ import OurStory from "./Component/OurStory/OurStory";
 import EventDetails from "./Component/EventDetails/EventDetails";
 import Gallery from "./Component/Gallery/Gallery";
 import Contact from "./Component/Contact/Contact";
+import Faq from "./Component/Faq/Faq";
 
 function App() {
   return (
     <div>
       <Header />
-      <Welcome />
-      <OurStory />
-      <EventDetails />
-      <Gallery />
-      <Contact />
+
+      <section id="Welcome">
+        <Welcome />
+      </section>
+
+      <section id="OurStory">
+        <OurStory />
+      </section>
+
+      <section id="EventDetails">
+        <EventDetails />
+      </section>
+
+      <section id="Gallery">
+        <Gallery />
+      </section>
+
+      <section id="Contact">
+        <Contact />
+      </section>
+
+      <section id="Faq">
+        <Faq />
+      </section>
+
       <Footer />
     </div>
   );

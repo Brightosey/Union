@@ -1,0 +1,59 @@
+@use "../../Style/global" as *;
+@use "../../Style/margin" as *;
+@use "../../Style/variables" as *;
+
+.faq {
+  background-color: #fdf7f1;
+  padding: 10rem 2rem;
+
+  &__title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    color: #a4511b;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__item {
+    border: 1px solid #e2dcd4;
+    padding: 2rem;
+
+    &--active {
+      background-color: #fff5eb;
+    }
+  }
+
+  &__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    &-text {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      color: #a4511b;
+      margin: 0;
+    }
+  }
+
+  &__toggle-icon {
+    font-size: 2rem;
+    color: #a4511b;
+  }
+
+  &__answer {
+    margin-top: 1rem;
+
+    &-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #4b4b4b;
+    }
+  }
+}

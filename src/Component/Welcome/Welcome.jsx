@@ -5,7 +5,7 @@ function Welcome() {
   return (
     <section className="welcome">
       <section className="welcome__text">
-        <h1 className="welcome__heading">Brian &amp; Layo</h1>
+        <h1 className="welcome__heading">Mayowa &amp; Damola</h1>
         <p className="welcome__date">We are getting married on Sep 21, 2025</p>
       </section>
       <figure className="welcome__image-wrapper">
