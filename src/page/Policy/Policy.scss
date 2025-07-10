@@ -1,0 +1,51 @@
+@use "../../Style/global" as *;
+@use "../../Style/margin" as *;
+@use "../../Style/variables" as *;
+
+.policy {
+  padding: 2rem;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+
+  &__back-container {
+    align-self: flex-end;
+  }
+
+  &__back {
+    width: 5rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: $primary-text-color;
+  }
+
+  &__section {
+    margin-bottom: 2rem;
+  }
+
+  &__heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: $primary-text-color;
+  }
+
+  &__subheading {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 1.2rem;
+    color: $primary-text-color;
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #b4b9bd;
+  }
+}

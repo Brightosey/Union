@@ -59,7 +59,7 @@
     width: 25%;
     text-align: center;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 2rem;
     color: #b35a24;
     padding: 1rem;
     display: flex;
@@ -71,28 +71,44 @@
     width: 50%;
     padding: 1.5rem;
     border-radius: 10px;
-    /* box-shadow: 0 0 10px rgba(0,0,0,0.05); */
-    /*  z-index: 2; */
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+   
   }
 
   &__image {
     width: 100%;
-    height: 20%;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 1rem;
+  }
+
+  &__image img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 2rem;
+    border: 1rem solid #aaa7ac ;
   }
 
   &__heading {
     font-size: 1.5rem;
     color: #b35a24;
     margin: 0.5rem 0;
+
+    @include tablet {
+      font-size: 2rem;
+    }
   }
 
   &__text {
     font-size: 1rem;
     color: #444;
     line-height: 1.6;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
   }
 
   &__next {

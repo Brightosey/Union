@@ -1,4 +1,5 @@
 import "./Footer.scss";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -6,20 +7,20 @@ function Footer() {
       <section className="footer__top">
         <div className="footer__logo">
           <a href="/" className="footer__logo-link">
-            B&amp;D
+            M&amp;D
           </a>
         </div>
         <div className="footer__nav">
-          <a href="#welcome" className="footer__link">
+          <a href="#Welcome" className="footer__link">
             Welcome
           </a>
-          <a href="#ourstory" className="footer__link">
+          <a href="#Ourstory" className="footer__link">
             Our Story
           </a>
-          <a href="#eventdetails" className="footer__link">
+          <a href="#Eventdetails" className="footer__link">
             Event Details
           </a>
-          <a href="#contact" className="footer__link">
+          <a href="#Contact" className="footer__link">
             Contact
           </a>
         </div>
@@ -27,7 +28,12 @@ function Footer() {
 
       <section className="footer__bottom">
         <p className="footer__copyright">&copy; M&amp;L</p>
-        <p className="footer__legal">Legal Notice | Privacy Policy</p>
+        <div>
+          <Link to="/policy" className="footer__link">Private Policy</Link>
+          <strong className="footer__seperator"> | </strong>
+          <Link to="/legal" className="footer__link">Legal Notice</Link>
+        </div>
+       {/*  <p className="footer__legal">Legal Notice | Privacy Policy</p> */}
       </section>
     </footer>
   );

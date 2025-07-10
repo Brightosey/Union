@@ -1,0 +1,29 @@
+@use "../../Style/global" as *;
+@use "../../Style/margin" as *;
+@use "../../Style/variables" as *;
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #fef7f2;
+  padding: 2rem;
+  border-radius: 1rem;
+  font-family: "Playfair Display", serif;
+
+  &__item {
+    text-align: center;
+  }
+
+  &__number {
+    font-size: 4rem;
+    font-weight: bold;
+    color: $primary-text-color;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 0.5rem;
+  }
+}
