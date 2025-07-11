@@ -1,0 +1,119 @@
+@use "../../Style/global" as *;
+@use "../../Style/margin" as *;
+@use "../../Style/variables" as *;
+
+.gifts {
+  background-color: #fdf9f6;
+  padding: 3rem 1.5rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    @include tablet {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+
+  &__text {
+    flex: 1;
+    max-width: 600px;
+    text-align: center;
+
+    @include tablet {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    color: #8a5c42;
+    margin-bottom: 1rem;
+  }
+
+  &__paragraph {
+    font-size: 1rem;
+    color: #5c4a3e;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  &__subheading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: #734d32;
+    text-transform: uppercase;
+  }
+
+  &__accounts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: center;
+      gap: 2rem;
+    }
+  }
+
+  &__account {
+    background: #fff;
+    border: 1px solid #e6d6cc;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: #3e3e3e;
+    width: 100%;
+    max-width: 270px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  &__barcodes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+
+    img {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  &__closing {
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-top: 2rem;
+    color: #6a5648;
+  }
+
+  &__signature {
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #4e3d30;
+  }
+
+  &__image {
+    flex: 1;
+   width: 50%;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+  }
+}

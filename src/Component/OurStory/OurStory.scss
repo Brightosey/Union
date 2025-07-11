@@ -21,12 +21,12 @@
     margin-bottom: 4rem;
     position: relative;
 
-    // Alternate timeline direction
+    
     &:nth-child(even) {
       flex-direction: row-reverse;
     }
 
-    // Vertical line in the center
+    
     &::before {
       content: "";
       position: absolute;
@@ -49,36 +49,42 @@
       width: 16px;
       height: 16px;
       background-color: $primary-text-color;
-      border: 4px solid white;
+      border: 4px solid $primary-text-color;
       border-radius: 50%;
       z-index: 1;
     }
   }
 
-  &__date {
-    width: 25%;
-    text-align: center;
-    font-weight: bold;
+  &__content {
+    width: 50%;
+    text-align: left;
     font-size: 2rem;
     color: #b35a24;
     padding: 1rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
   }
 
-  &__content {
+  &__figure {
     width: 50%;
     padding: 1.5rem;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
    
+  }
+
+  &__date {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $primary-text-color;
   }
 
   &__image {
     width: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 1rem;
   }
 
@@ -88,7 +94,7 @@
     max-height: 400px;
     object-fit: cover;
     border-radius: 2rem;
-    border: 1rem solid #aaa7ac ;
+    border: 0.5rem solid #aaa7ac ;
   }
 
   &__heading {
@@ -107,7 +113,7 @@
     line-height: 1.6;
 
     @include tablet {
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
   }
 

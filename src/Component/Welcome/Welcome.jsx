@@ -1,13 +1,21 @@
 import "./Welcome.scss";
 import couple1 from "../../assets/Images/couple1.jpg";
 import Countdown from "../Countdown/Countdown";
+import love from "../../assets/Icon/love.png";
+import flower from "../../assets/Icon/flower.png";
 
 function Welcome() {
   return (
     <section className="welcome">
       <section className="welcome__text">
         <h1 className="welcome__heading">Mayowa &amp; Damola</h1>
-        <p className="welcome__date">We are getting married on Dec 20, 2025</p>
+        <div className="welcome__box">
+          <img className="welcome__icon" src={flower} alt="flower" />
+          <p className="welcome__date">
+            we're getting <br /> <strong>MARRIED</strong>
+          </p>
+          <img className="welcome__icon" src={love} alt="ring" />
+        </div>
         <Countdown />
       </section>
       <figure className="welcome__image-wrapper">

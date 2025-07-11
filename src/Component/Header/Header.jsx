@@ -24,6 +24,7 @@ function Header() {
               "#EventDetails",
               "#Gallery",
               "#Contact",
+              "#Gifts",
             ].map((anchor, i) => (
               <li  key={i} onClick={() => setIsOpen(false)}>
                 <a href={anchor} className="header__item">

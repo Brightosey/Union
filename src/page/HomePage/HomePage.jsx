@@ -6,6 +6,7 @@ import EventDetails from "../../Component/EventDetails/EventDetails";
 import Gallery from "../../Component/Gallery/Gallery";
 import Contact from "../../Component/Contact/Contact";
 import Faq from "../../Component/Faq/Faq";
+import Gifts from "../../Component/Gifts/Gifts";
 
 function HomePage() {
   return (
@@ -34,6 +35,10 @@ function HomePage() {
 
       <section id="Faq">
         <Faq />
+      </section>
+
+      <section id="Gifts">
+        <Gifts />
       </section>
 
       <Footer />
