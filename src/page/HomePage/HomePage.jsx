@@ -7,6 +7,7 @@ import Gallery from "../../Component/Gallery/Gallery";
 import Contact from "../../Component/Contact/Contact";
 import Faq from "../../Component/Faq/Faq";
 import Gifts from "../../Component/Gifts/Gifts";
+import WeddingParty from "../../Component/WeddingParty/WeddingParty";
 
 function HomePage() {
   return (
@@ -31,6 +32,10 @@ function HomePage() {
 
       <section id="Contact">
         <Contact />
+      </section>
+
+      <section>
+        <WeddingParty />
       </section>
 
       <section id="Faq">
