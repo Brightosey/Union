@@ -13,13 +13,13 @@ import { useState, useEffect } from "react";
 function Gallery() {
   const galleryImages = [
     { src: img1, title: "The Beginning" },
-    { src: img2, title: "Save The Date" },
+   /*  { src: img2, title: "Save The Date" }, */
     { src: img3, title: "Bride Vibes" },
     { src: img4, title: "Groom's Goal" },
     { src: img5, title: "Better Together" },
     { src: img6, title: "Laughter" },
-    { src: img7, title: "Countdown" },
-    { src: img8, title: "Made for Each Other" },
+    /* { src: img7, title: "Countdown" },
+    { src: img8, title: "Made for Each Other" }, */
     { src: img9, title: "Favourite People" },
   ];
 
