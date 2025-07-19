@@ -1,11 +1,14 @@
 import "./Gifts.scss";
-import giftImage from "../../assets/Images/gift.jpg"; 
+import giftImage from "../../assets/Images/gift.jpg";
 import paypalBarcode1 from "../../assets/Images/paypal.png";
 import paypalBarcode2 from "../../assets/Images/paypal.png";
 
 function Gifts() {
   return (
     <section className="gifts" id="gifts">
+      <div className="gifts__image-wrapper">
+        <img src={giftImage} className="gifts__image" alt="Wedding Gift Display" />
+      </div>
       <div className="gifts__content">
         <div className="gifts__text">
           <h2 className="gifts__title">Our Wedding Gifts</h2>
@@ -79,10 +82,6 @@ function Gifts() {
             With all our love, <br />
             Damola & Mayowa
           </p>
-        </div>
-
-        <div className="gifts__image">
-          <img src={giftImage} alt="Wedding Gift Display" />
         </div>
       </div>
     </section>

@@ -7,7 +7,7 @@ function Footer() {
       <section className="footer__top">
         <div className="footer__logo">
           <a href="/" className="footer__logo-link">
-            M&amp;D
+            D&amp;M
           </a>
         </div>
         <div className="footer__nav">
@@ -20,8 +20,8 @@ function Footer() {
           <a href="#Eventdetails" className="footer__link">
             Event Details
           </a>
-          <a href="#Contact" className="footer__link">
-            Contact
+          <a href="#RSVP" className="footer__link">
+            RSVP
           </a>
         </div>
       </section>

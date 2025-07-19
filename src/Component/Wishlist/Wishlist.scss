@@ -1,3 +1,125 @@
 @use "../../Style/global" as *;
 @use "../../Style/margin" as *;
 @use "../../Style/variables" as *;
+
+.wishlist {
+  background-color: #F9F7F1;
+  padding: 2rem 1rem;
+  width: 100%;
+  text-align: center;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
+
+  &__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: $primary-text-color;
+
+    @include tablet {
+      font-size: 4rem;
+    }
+
+    @include desktop {
+      font-size: 5rem;
+    }
+  }
+
+  &__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    &--arrow {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    @include tablet {
+      width: 3.5rem;
+      height: 3.5rem;
+
+      &--arrow {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+    @include desktop {
+      width: 4rem;
+      height: 4rem;
+
+      &--arrow {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+
+    @include tablet {
+      justify-content: flex-end;
+      margin-right: 2rem;
+    }
+  }
+
+  &__button {
+    background-color: #E7EAF0;
+    padding: 0.5rem 1.25rem;
+    border: none;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1E2A36;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #d6dae0;
+      color: $primary-text-color;
+      cursor: pointer;
+    }
+
+    @include tablet {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+
+  &__button-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    @include tablet {
+      gap: 0.5rem;
+    }
+  }
+
+  &__button-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+
+    @include tablet {
+      font-size: 2rem;
+    }
+
+    @include desktop {
+      font-size: 2.5rem;
+    }
+  }
+}

@@ -8,6 +8,7 @@ import Contact from "../../Component/Contact/Contact";
 import Faq from "../../Component/Faq/Faq";
 import Gifts from "../../Component/Gifts/Gifts";
 import WeddingParty from "../../Component/WeddingParty/WeddingParty";
+import Wishlist from "../../Component/wishList/wishList";
 
 function HomePage() {
   return (
@@ -30,7 +31,11 @@ function HomePage() {
         <Gallery />
       </section>
 
-      <section id="Contact">
+      <section>
+        <Wishlist />
+      </section>
+
+      <section id="RSVP">
         <Contact />
       </section>
 

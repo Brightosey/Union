@@ -8,7 +8,7 @@ function Header() {
   return (
     <header className="header">
       <section className="header__logo">
-        <a href="#welcome" className="header__logo-link">M&amp;D</a>
+        <a href="#welcome" className="header__logo-link">D&amp;M</a>
       </section>
 
       <section className="header__menu">
@@ -23,7 +23,7 @@ function Header() {
               "#OurStory",
               "#EventDetails",
               "#Gallery",
-              "#Contact",
+              "#RSVP",
               "#Gifts",
             ].map((anchor, i) => (
               <li  key={i} onClick={() => setIsOpen(false)}>

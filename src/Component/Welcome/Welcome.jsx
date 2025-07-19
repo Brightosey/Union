@@ -8,12 +8,13 @@ function Welcome() {
   return (
     <section className="welcome">
       <section className="welcome__text">
-        <h1 className="welcome__heading">Mayowa &amp; Damola</h1>
+        <h1 className="welcome__heading">Damola &amp; Mayowa</h1>
         <div className="welcome__box">
           <img className="welcome__icon" src={flower} alt="flower" />
-          <p className="welcome__date">
-            we're getting <br /> <strong>MARRIED</strong>
-          </p>
+          <div className="welcome__message">
+            <p className="welcome__date">we're getting</p>
+            <p className="welcome__date"><strong>MARRIED</strong></p>
+          </div>
           <img className="welcome__icon" src={love} alt="ring" />
         </div>
         <Countdown />

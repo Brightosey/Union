@@ -55,7 +55,7 @@
 } */
 
 .event {
-  background-color: #787b65; // muted olive green
+  background-color: #787b65; 
   color: #f9f9f9;
   padding: 3rem 1.5rem;
   text-align: center;
@@ -86,6 +86,14 @@
 
   &__save-text {
     margin: 0;
+
+    @include tablet {
+      font-size: 2rem;
+    }
+
+    @include desktop {
+      font-size: 2.3rem;
+    }
   }
 
   &__top-image {
@@ -93,7 +101,7 @@
     width: 100%;
     height: auto;
     object-fit: cover;
-    max-height: 250px;
+    max-height: 300px;
   }
 
   &__date {
@@ -102,6 +110,14 @@
     margin: 2rem 0;
     color: #ffffff;
     letter-spacing: 1px;
+
+    @include tablet {
+      font-size: 2rem;
+    }
+
+    @include desktop {
+      font-size: 2.5rem;
+    }
   }
 
   &__info-wrapper {
@@ -127,16 +143,44 @@
   }
 
   &__info-title {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     letter-spacing: 1px;
     color: #e8dfd7;
+
+    @include tablet {
+      font-size: 2rem;
+    }
+
+    @include desktop {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__info-text {
+    line-height: 1.6;
+
+    @include tablet {
+      font-size: 1.4rem;
+    }
+
+    @include desktop {
+      font-size: 1.8rem;
+    }
   }
 
   &__info-time {
     font-weight: 600;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+
+    @include tablet {
+      font-size: 1.4rem;
+    }
+
+    @include desktop {
+      font-size: 1.8rem;
+    }
   }
 
   &__divider {
