@@ -367,12 +367,12 @@ function Wishlist() {
         {isOpen && (
           <section className="wishlist__form-panel wish-form-slide-in">
             <div className="wishlist__close" onClick={() => setIsOpen(false)}>
-              <X />
+              <X className="wishlist__close-icon"/>
             </div>
-
+            <div className="wishlist__form-header">
             <h3 className="wishlist__form-title">Leave a Wish</h3>
-            <img src={envelope} alt="envelope-icon" />
-
+            <img className="wishlist__form-icon" src={envelope} alt="envelope-icon" />
+            </div>
             <div className="wishlist__form-container">
               <form className="wishlist__form" onSubmit={handleSubmit}>
                 <input
@@ -463,6 +463,7 @@ function Wishlist() {
           </section>
         )}
       </section>
+      {isOpen && <div className="wishlist__overlay"></div>}
     </section>
   );
 }

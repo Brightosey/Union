@@ -7,7 +7,11 @@ function Gifts() {
   return (
     <section className="gifts" id="gifts">
       <div className="gifts__image-wrapper">
-        <img src={giftImage} className="gifts__image" alt="Wedding Gift Display" />
+        <img
+          src={giftImage}
+          className="gifts__image"
+          alt="Wedding Gift Display"
+        />
       </div>
       <div className="gifts__content">
         <div className="gifts__text">
@@ -29,39 +33,33 @@ function Gifts() {
           <div className="gifts__accounts">
             <div className="gifts__account">
               <p>
-                <strong>Eniola – GTBank</strong>
-                <br />
-                0122823142
+                <strong>Damola – GTBank</strong>
               </p>
+              <p>0398465743</p>
             </div>
             <div className="gifts__account">
               <p>
-                <strong>Timilehin – Access Bank</strong>
-                <br />
-                0690806193
+                <strong>Mayowa – Access Bank</strong>
               </p>
+              <p>0398465743</p>
             </div>
           </div>
 
           <h3 className="gifts__subheading">🇨🇦 Canadian Accounts (CAD)</h3>
           <div className="gifts__accounts">
             <div className="gifts__account">
-              <p>
+              <p className="gifts__account-details">
                 <strong>Damola – CIBC</strong>
-                <br />
-                Transit: 00016 • Institution: 010
-                <br />
-                Acct: 99999999 • SWIFT: CIBCCATT
               </p>
+              <p className="gifts__account-details">Transit: 00016 • Institution: 010</p>
+              <p className="gifts__account-details">Acct: 99999999 • SWIFT: CIBCCATT</p>
             </div>
             <div className="gifts__account">
-              <p>
+              <p className="gifts__account-details">
                 <strong>Mayowa – Scotia</strong>
-                <br />
-                Transit: 20016 • Institution: 002
-                <br />
-                Acct: 99999999 • SWIFT: NOSCCATT
               </p>
+              <p className="gifts__account-details">Transit: 20016 • Institution: 002</p>
+              <p className="gifts__account-details">Acct: 99999999 • SWIFT: NOSCCATT</p>
             </div>
           </div>
 
