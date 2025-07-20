@@ -7,13 +7,13 @@ function WeddingParty() {
   const [visibleCount, setVisibleCount] = useState(getVisibleCount());
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const cardWidth = 300;
-  const spacing = 16;
+  const cardWidth = 200;
+  const spacing = 32;
   const effectiveCardWidth = cardWidth + spacing;
 
   const totalCards = Friends.length;
 
-  // 🧠 Calculate how many possible full-slide positions exist
+  
   const maxSlideIndex = Math.max(0, Math.ceil(totalCards / visibleCount) - 1);
 
   useEffect(() => {
@@ -34,7 +34,6 @@ function WeddingParty() {
     return 1; // Mobile
   }
 
-  // 🧠 Smart offset: if it's the last slide, shift just enough to show final cards
   const lastVisibleCardIndex = Math.min(
     totalCards,
     (currentSlide + 1) * visibleCount

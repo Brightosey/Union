@@ -27,7 +27,7 @@ function Footer() {
       </section>
 
       <section className="footer__bottom">
-        <p className="footer__copyright">&copy; M&amp;L</p>
+        <p className="footer__copyright">&copy; D&amp;M</p>
         <div>
           <Link to="/policy" className="footer__link">Private Policy</Link>
           <strong className="footer__seperator"> | </strong>
