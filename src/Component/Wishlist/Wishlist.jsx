@@ -221,7 +221,7 @@ function Wishlist() {
 export default Wishlist;
  */
 
-import "./WishList.scss";
+import "./Wishlist.scss";
 import { useState, useEffect, useCallback } from "react";
 import { X } from "lucide-react";
 import arrow from "../../assets/Icon/right-arrow.png";
@@ -329,7 +329,10 @@ function Wishlist() {
   const handleLikes = async (id) => {
     const hasLiked = likedIds.includes(id);
     try {
-      const response = await axios.patch(`${backendUrl}/api/wishes/${id}/like`, {liked:!hasLiked});
+      const response = await axios.patch(
+        `${backendUrl}/api/wishes/${id}/like`,
+        { liked: !hasLiked }
+      );
       const updateLikes = response.data.likes;
 
       setWishes((prevWishes) =>
