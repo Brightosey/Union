@@ -22,16 +22,16 @@
   }
 
   &__title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: $primary-text-color;
 
     @include tablet {
-      font-size: 4rem;
+      font-size: 3rem;
     }
 
     @include desktop {
-      font-size: 5rem;
+      font-size: 4rem;
     }
   }
 
@@ -109,14 +109,14 @@
 
   &__button-text {
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1rem;
 
     @include tablet {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
 
     @include desktop {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
   }
 

@@ -94,7 +94,7 @@
   &__figure {
     width: 100%;
     margin: 3rem 0;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   
     @include tablet {
@@ -109,13 +109,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: fefefe;
   }
   
   &__image img {
     width: 100%; 
-    height: auto; 
+    height: 80vh; 
     object-fit: contain; 
-    border-radius: 2rem;
+   /*  border-radius: 10rem; */
   }
 
   &__date {

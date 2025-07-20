@@ -8,7 +8,7 @@ import Contact from "../../Component/Contact/Contact";
 import Faq from "../../Component/Faq/Faq";
 import Gifts from "../../Component/Gifts/Gifts";
 import WeddingParty from "../../Component/WeddingParty/WeddingParty";
-import Wishlist from "../../Component/wishList/wishList";
+import Wishlist from "../../Component/Wishlist/Wishlist";
 
 function HomePage() {
   return (

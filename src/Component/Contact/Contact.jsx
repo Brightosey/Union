@@ -30,6 +30,11 @@ function Contact() {
     }
 
     alert("Form submitted successfully!");
+
+    setName("");
+    setPhone("");
+    setEmail("");
+    setMessage("");
   }
 
   return (
