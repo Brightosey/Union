@@ -1,226 +1,3 @@
-/* import "./WishList.scss";
-import { useState, useEffect, useCallback } from "react";
-import { X } from "lucide-react";
-import arrow from "../../assets/Icon/right-arrow.png";
-import love from "../../assets/Icon/valentines-day.png";
-import bouquet from "../../assets/Icon/bouquet.png";
-import envelope from "../../assets/Icon/envelope-front.png";
-import axios from "axios";
-import debounce from "lodash.debounce";
-
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-const API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
-
-function Wishlist() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  const [gif, setGif] = useState("");
-  const [query, setQuery] = useState("");
-  const [gifResults, setGifResults] = useState([]);
-  const [wishes, setWishes] = useState([]);
-
-  const fetchGifs = async (searchTerm) => {
-    try {
-      const response = await axios.get(
-        `https://api.giphy.com/v1/gifs/search?q=${encodeURIComponent(
-          searchTerm
-        )}&api_key=${API_KEY}&limit=12`
-      );
-      setGifResults(response.data.data);
-    } catch (error) {
-      console.log("Error fetching GIFs:", error);
-    }
-  };
-
-  const debouncedSearch = useCallback(debounce(fetchGifs, 500), []);
-
-  useEffect(() => {
-    if (query.trim()) {
-      debouncedSearch(query);
-    } else {
-      setGifResults([]);
-    }
-  }, [query, debouncedSearch]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!name.trim() || !message.trim() || !gif.trim()) {
-      alert("Please fill out all fields");
-      return;
-    }
-
-    const newWish = {
-      name,
-      message,
-      gif,
-      timestamp: new Date().toISOString(),
-    };
-
-    try {
-      const response = await axios.post(`${backendUrl}/api/wishes`, newWish);
-
-      if (response.status === 201 || response.status === 200) {
-        alert("Message submitted successfully!");
-        setName("");
-        setMessage("");
-        setGif("");
-        setQuery("");
-        setGifResults([]);
-        getWishes();
-      } else {
-        alert("Something went wrong: Please try again");
-      }
-    } catch (error) {
-      alert("Failed to send wish: Please check your connection");
-    }
-  };
-
-  const getWishes = async () => {
-    try {
-      const response = await axios.get(`${backendUrl}/api/wishes`);
-      setWishes(response.data);
-    } catch (error) {
-      alert("Error fetching wishes", error);
-    }
-  };
-
-  useEffect(() => {
-    getWishes();
-  }, []);
-
-  const handleLikes = async (id) => {
-    try {
-      const response = await axios.patch(`${backendUrl}/api/wishes/${id}/like`);
-      const updateLikes = response.data.likes;
-
-      setWishes((prevWishes) =>
-        prevWishes.map((wish) =>
-          wish.id === id ? { ...wish, likes: updateLikes } : wish
-        )
-      );
-    } catch (error) {
-      alert("Error liking the wish", error);
-    }
-  };
-
-  return (
-    <section className="wishlist">
-      <section className="wishlist__header">
-        <img src={love} alt="love-icon" />
-        Well Wishes <img src={bouquet} alt="bouquet-icon" />
-      </section>
-
-      <section className="wishlist__content">
-        <button
-          className="wishlist__toggle-btn"
-          onClick={() => setIsOpen(true)}
-        >
-          <div className="wishlist__toggle-inner">
-            <img src={envelope} alt="envelope-icon" />
-            <h2>Send Wishes</h2>
-            <img src={arrow} alt="right-arrow-icon" />
-          </div>
-        </button>
-
-        {isOpen && (
-          <section className="wishlist__form-panel wish-form-slide-in">
-            <div className="wishlist__close" onClick={() => setIsOpen(false)}>
-              <X />
-            </div>
-
-            <h3 className="wishlist__form-title">Leave a Wish</h3>
-            <img src={envelope} alt="envelope-icon" />
-
-            <div className="wishlist__form-container">
-              <form className="wishlist__form" onSubmit={handleSubmit}>
-                <input
-                  className="wishlist__input"
-                  type="text"
-                  name="name"
-                  value={name}
-                  placeholder="Name"
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-
-                <textarea
-                  className="wishlist__textarea"
-                  name="message"
-                  value={message}
-                  placeholder="Message"
-                  onChange={(e) => setMessage(e.target.value)}
-                  required
-                ></textarea>
-
-                <div className="wishlist__gif-search">
-                  <input
-                    type="text"
-                    className="wishlist__input"
-                    value={query}
-                    placeholder="Search for a GIF"
-                    onChange={(e) => setQuery(e.target.value)}
-                  />
-                </div>
-
-                <div className="wishlist__gif-grid">
-                  {gifResults.map((gifData) => (
-                    <img
-                      key={gifData.id}
-                      src={gifData.images.fixed_height_small.url}
-                      alt={gifData.title}
-                      className={`wishlist__gif-thumb ${
-                        gif === gifData.images.original.url ? "selected" : ""
-                      }`}
-                      onClick={() =>
-                        setGif(gifData.images.original.url)
-                      }
-                    />
-                  ))}
-                </div>
-
-                <button className="wishlist__submit-btn" type="submit">
-                  Submit
-                </button>
-              </form>
-            </div>
-
-            <div className="wishlist__messages">
-              <h3 className="wishlist__messages-title">
-                Wishes ({wishes.length})
-              </h3>
-
-              {wishes.map((wish) => (
-                <div className="wishlist__message" key={wish.id}>
-                  <div className="wishlist__message-content">
-                    <h4>{wish.name}</h4>
-                    <p>{wish.message}</p>
-                    {wish.gif_url && (
-                      <img src={wish.gif_url} alt="gif-sticker" />
-                    )}
-                  </div>
-                  <div
-                    className="wishlist__likes"
-                    onClick={() => handleLikes(wish.id)}
-                  >
-                    <p className="wishlist__like-count">
-                      ❤️ {wish.likes} Likes
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-      </section>
-    </section>
-  );
-}
-
-export default Wishlist;
- */
-
 import "./Wishlist.scss";
 import { useState, useEffect, useCallback } from "react";
 import { X } from "lucide-react";
@@ -230,6 +7,7 @@ import bouquet from "../../assets/Icon/bouquet.png";
 import envelope from "../../assets/Icon/envelope-front.png";
 import axios from "axios";
 import debounce from "lodash.debounce";
+import Modal from "../../Component/Modal/Modal";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
@@ -243,6 +21,8 @@ function Wishlist() {
   const [gifResults, setGifResults] = useState([]);
   const [wishes, setWishes] = useState([]);
   const [likedIds, setLikedIds] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   const fetchGifs = async (searchTerm) => {
     try {
@@ -275,7 +55,9 @@ function Wishlist() {
     e.preventDefault();
 
     if (!name.trim() || !message.trim() || !gif.trim()) {
-      alert("Please fill out all fields");
+      setModalMessage("Please fill out all fields");
+      setIsOpen(true);
+      /* alert("Please fill out all fields"); */
       return;
     }
 
@@ -298,18 +80,18 @@ function Wishlist() {
         setGifResults([]);
         getWishes();
       } else {
-        alert("Something went wrong: Please try again");
+        setModalMessage("Something went wrong: Please try again")
+        setIsModalOpen(true);
+       /*  alert("Something went wrong: Please try again"); */
       }
     } catch (error) {
-      /* alert("Failed to send wish: Please check your connection"); */
-      console.error(
-        "Failed to send wish:",
-        error.response || error.message || error
-      );
-      alert(
+      console.error("❌ Submission error:", error);
+      setModalMessage("Failed to send wish. Please check your connection.")
+      setIsModalOpen(true);
+   /*    alert(
         "Failed to send wish: " +
           (error.response?.data?.message || error.message)
-      );
+      ); */
     }
   };
 
@@ -345,7 +127,9 @@ function Wishlist() {
         hasLiked ? prev.filter((likedId) => likedId !== id) : [...prev, id]
       );
     } catch (error) {
-      alert("Error liking the wish", error);
+      setModalMessage("Error liking the wish", error);
+      setIsOpen(true);
+      /* alert("Error liking the wish", error); */
     }
   };
 
@@ -487,6 +271,11 @@ function Wishlist() {
         )}
       </section>
       {isOpen && <div className="wishlist__overlay"></div>}
+      <Modal
+      isOpen={isModalOpen}
+      message={modalMessage}
+      onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }

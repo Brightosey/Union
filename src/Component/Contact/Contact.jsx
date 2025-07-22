@@ -1,12 +1,15 @@
 import "./Contact.scss";
 import { useState } from "react";
 import contactImage from "../../assets/Images/contact-image.jpg";
+import Modal from "../../Component/Modal/Modal";
 
 function Contact() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [modalMessage, setIsModalMessage] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   function isEmailValid(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -20,16 +23,22 @@ function Contact() {
     e.preventDefault();
 
     if (!isEmailValid(email)) {
-      alert("Please enter a valid Email");
+      setIsModalMessage("Please enter a valid Email");
+      setIsModalOpen(true);
+    /*   alert("Please enter a valid Email"); */
       return;
     }
 
     if (!isPhoneValid(phone)) {
-      alert("Please enter a valid number");
+      setIsModalMessage("Please enter a valid number");
+      setIsModalOpen(true);
+      /* alert("Please enter a valid number"); */
       return;
     }
 
-    alert("Form submitted successfully!");
+    setIsModalMessage("Form submitted successfully");
+    setIsModalOpen(true);
+  /*   alert("Form submitted successfully!"); */
 
     setName("");
     setPhone("");
@@ -91,6 +100,11 @@ function Contact() {
           <button type="submit" className="contact__button">Submit</button>
         </form>
       </div>
+      <Modal
+      isOpen={isModalOpen}
+      message={modalMessage}
+      onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }

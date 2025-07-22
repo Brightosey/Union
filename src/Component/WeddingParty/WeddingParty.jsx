@@ -1,70 +1,19 @@
 import "./WeddingParty.scss";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Friends from "../../Data/Friends";
-import { useEffect, useState } from "react";
+import { useRef } from "react";
 
 function WeddingParty() {
-  const [visibleCount, setVisibleCount] = useState(getVisibleCount());
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const scrollRef = useRef(null);
 
-  const cardWidth = 200;
-  const spacing = 32;
-  const effectiveCardWidth = cardWidth + spacing;
+  const handleScroll = (direction) => {
+    const container = scrollRef.current;
+    const scrollAmount = container.offsetWidth; // Scroll by full visible width
 
-  const totalCards = Friends.length;
-
-  
-  const maxSlideIndex = Math.max(0, Math.ceil(totalCards / visibleCount) - 1);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const newCount = getVisibleCount();
-      setVisibleCount(newCount);
-      setCurrentSlide(0); // reset to first slide
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  function getVisibleCount() {
-    const width = window.innerWidth;
-    if (width >= 1024) return 4; // Desktop
-    if (width >= 768) return 3; // Tablet
-    return 1; // Mobile
-  }
-
-  const lastVisibleCardIndex = Math.min(
-    totalCards,
-    (currentSlide + 1) * visibleCount
-  );
-  const offset = Math.min(
-    currentSlide * visibleCount * effectiveCardWidth,
-    totalCards * effectiveCardWidth - visibleCount * effectiveCardWidth
-  );
-
-  const handleNext = () => {
-    if (currentSlide < maxSlideIndex) {
-      setCurrentSlide((prev) => prev + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentSlide > 0) {
-      setCurrentSlide((prev) => prev - 1);
-    }
-  };
-
-  // Touch swipe
-  const [touchStartX, setTouchStartX] = useState(0);
-  const [touchEndX, setTouchEndX] = useState(0);
-
-  const handleTouchStart = (e) => setTouchStartX(e.touches[0].clientX);
-  const handleTouchMove = (e) => setTouchEndX(e.touches[0].clientX);
-  const handleTouchEnd = () => {
-    const delta = touchStartX - touchEndX;
-    if (delta > 50) handleNext();
-    else if (delta < -50) handlePrev();
+    container.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -72,42 +21,29 @@ function WeddingParty() {
       <div className="wedding-party__header">
         <h1 className="wedding-party__title">Wedding Party</h1>
         <div className="wedding-party__controls">
-          <button onClick={handlePrev} disabled={currentSlide === 0}>
+          <button onClick={() => handleScroll("left")}>
             <FaChevronLeft />
           </button>
-          <button onClick={handleNext} disabled={currentSlide >= maxSlideIndex}>
+          <button onClick={() => handleScroll("right")}>
             <FaChevronRight />
           </button>
         </div>
       </div>
 
-      <div
-        className="wedding-party__wrapper"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        <div
-          className="wedding-party__track"
-          style={{
-            transform: `translateX(-${offset}px)`,
-            transition: "transform 0.4s ease-in-out",
-          }}
-        >
-          {Friends.map((member, index) => (
-            <div className="wedding-party__card" key={index}>
-              <img
-                src={member.image}
-                alt={member.name}
-                className="wedding-party__image"
-              />
-              <div className="wedding-party__overlay">
-                <h3 className="wedding-party__name">{member.name}</h3>
-                <p className="wedding-party__role">{member.role}</p>
-              </div>
+      <div className="wedding-party__scroll-container" ref={scrollRef}>
+        {Friends.map((member, index) => (
+          <div className="wedding-party__card" key={index}>
+            <img
+              src={member.image}
+              alt={member.name}
+              className="wedding-party__image"
+            />
+            <div className="wedding-party__overlay">
+              <h3 className="wedding-party__name">{member.name}</h3>
+              <p className="wedding-party__role">{member.role}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

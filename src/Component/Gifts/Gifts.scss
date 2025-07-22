@@ -5,9 +5,6 @@
 .gifts {
   display: flex;
   flex-direction: column;
-  background-color: #fdfaf5;
-  padding: 1rem;
-  gap: 2rem;
   display: flex;
   flex-direction: column;
   background-color: #fdfaf5;
@@ -22,30 +19,27 @@
   @include tablet {
     padding: 2rem;
     gap: 4rem;
-    min-height: 80vh; 
+    min-height: 80vh;
   }
 
   &__image-wrapper {
     width: 100%;
     display: flex;
-    /* height: 40vh; */
-    
 
     @include tablet {
       border-radius: 5rem;
-      /* height: 60vh; */ 
     }
   }
 
   &__image {
     width: 100%;
-   /*  height: 50vh; */
-    object-fit: contain;
+    border-radius: 5rem;
+    height: 300px;
+    object-fit: cover;
 
     @include tablet {
       border-radius: 5rem;
-      height: 100%;
-      object-fit: cover; 
+      object-fit: cover;
     }
   }
 
@@ -72,19 +66,18 @@
   &__title {
     font-size: 2rem;
     font-weight: bold;
-    color: #b35a24;
+    color: #E1B382;
     text-align: center;
 
     @include tablet {
       font-size: 2.5rem;
-      /* margin-top: 2rem; */
     }
   }
 
   &__paragraph {
     font-size: 1rem;
     line-height: 1.7;
-    color: #555;
+    color: #f5f0e6;
     text-align: center;
 
     @include tablet {
@@ -96,7 +89,7 @@
     font-size: 1.2rem;
     font-weight: 600;
     margin-top: 1rem;
-    color: #a04e22;
+    color: #E1B382;
     text-align: center;
 
     @include tablet {
@@ -142,7 +135,7 @@
 
   &__closing {
     font-style: italic;
-    color: #6a4b3f;
+    color: #f5f0e6;
     font-weight: 500;
     text-align: center;
   }
@@ -151,7 +144,7 @@
     font-weight: bold;
     font-size: 1.2rem;
     margin-top: 1rem;
-    color: #7a3e2e;
+    color: #f5f0e6;
     text-align: center;
   }
 }
