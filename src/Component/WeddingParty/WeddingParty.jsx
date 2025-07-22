@@ -21,10 +21,10 @@ function WeddingParty() {
       <div className="wedding-party__header">
         <h1 className="wedding-party__title">Wedding Party</h1>
         <div className="wedding-party__controls">
-          <button onClick={() => handleScroll("left")}>
+          <button className="wedding-party__controls-button" onClick={() => handleScroll("left")}>
             <FaChevronLeft />
           </button>
-          <button onClick={() => handleScroll("right")}>
+          <button className="wedding-party__controls-button" onClick={() => handleScroll("right")}>
             <FaChevronRight />
           </button>
         </div>
