@@ -57,7 +57,6 @@ function Wishlist() {
     if (!name.trim() || !message.trim() || !gif.trim()) {
       setModalMessage("Please fill out all fields");
       setIsOpen(true);
-      /* alert("Please fill out all fields"); */
       return;
     }
 
@@ -80,18 +79,12 @@ function Wishlist() {
         setGifResults([]);
         getWishes();
       } else {
-        setModalMessage("Something went wrong: Please try again")
+        setModalMessage("Something went wrong: Please try again");
         setIsModalOpen(true);
-       /*  alert("Something went wrong: Please try again"); */
       }
     } catch (error) {
-      console.error("❌ Submission error:", error);
-      setModalMessage("Failed to send wish. Please check your connection.")
+      setModalMessage("Failed to send wish. Please check your connection.");
       setIsModalOpen(true);
-   /*    alert(
-        "Failed to send wish: " +
-          (error.response?.data?.message || error.message)
-      ); */
     }
   };
 
@@ -129,7 +122,6 @@ function Wishlist() {
     } catch (error) {
       setModalMessage("Error liking the wish", error);
       setIsOpen(true);
-      /* alert("Error liking the wish", error); */
     }
   };
 
@@ -272,9 +264,9 @@ function Wishlist() {
       </section>
       {isOpen && <div className="wishlist__overlay"></div>}
       <Modal
-      isOpen={isModalOpen}
-      message={modalMessage}
-      onClose={() => setIsModalOpen(false)}
+        isOpen={isModalOpen}
+        message={modalMessage}
+        onClose={() => setIsModalOpen(false)}
       />
     </section>
   );
